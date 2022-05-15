@@ -12,16 +12,17 @@ setGrid.addEventListener('click', function getInput(){
         gridCreation(val);
     }
 });
-//grid-template-columns: repeat(16,1fr);
-//grid-template-rows: repeat(16,1fr);
 
 
+
+//create the grid
 function gridCreation(val){
-    //setTimeout( ()=> console.log('ho atteso'), 5000)
+    //removes the prev grid and adds the rows and col value fractions
     while (container.lastChild) {
     container.removeChild(container.lastChild);}
     container.setAttribute("style", `grid-template-columns:repeat(${val},1fr);grid-template-rows:repeat(${val},1fr);`);
     container.style.gridTemplateRows = `repeat(${val},1fr)`;
+    //div loop creation
     for (let i = 0; i<val*val; i++){
         let dv = document.createElement('div');
         container.appendChild(dv);
@@ -43,4 +44,6 @@ function random() {
   container.addEventListener('mouseover', function(e){
       e.target.style.backgroundColor = random();
   });
+
+  //funct called with default to show at least a basic canvas
   gridCreation(16)
